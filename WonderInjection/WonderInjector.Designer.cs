@@ -31,6 +31,7 @@ namespace WonderInjection
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tp_Injection = new System.Windows.Forms.TabPage();
             this.btn_WCInject = new System.Windows.Forms.Button();
@@ -487,7 +488,7 @@ namespace WonderInjection
             this.linkLabel1.Size = new System.Drawing.Size(44, 13);
             this.linkLabel1.TabIndex = 7;
             this.linkLabel1.TabStop = true;
-            this.linkLabel1.Text = "Ver. 0.1";
+            this.linkLabel1.Text = "Ver. 0.5";
             // 
             // ofd_Injection
             // 
@@ -510,8 +511,9 @@ namespace WonderInjection
             this.Controls.Add(this.btn_Connect);
             this.Controls.Add(this.tb_IP);
             this.Controls.Add(this.tabControl1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "MainForm";
-            this.Text = "Form1";
+            this.Text = "Wonder Injector";
             this.tabControl1.ResumeLayout(false);
             this.tp_Injection.ResumeLayout(false);
             this.tp_Injection.PerformLayout();
