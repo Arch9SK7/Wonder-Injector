@@ -146,7 +146,7 @@ namespace WonderInjection
                 }
                 if (readcount >= timeout * 10) // If not response in two seconds, return timeout
                     return false;
-                else // Return sucess
+                else // Return success
                     return true;
             }
         }

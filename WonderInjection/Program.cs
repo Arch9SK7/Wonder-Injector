@@ -8,6 +8,7 @@ namespace WonderInjection
         public static NTR ntrClient;
         public static ScriptHelper scriptHelper;
         public static RemoteControl helper;
+        public static LookupTable PKTable;
         public static Boolean Connected = false;
         public static MainForm f1;
         public static PKHeX pkhex;
@@ -21,6 +22,7 @@ namespace WonderInjection
             scriptHelper = new ScriptHelper();
             helper = new RemoteControl();
             pkhex = new PKHeX();
+            PKTable = new LookupTable();
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             f1 = new MainForm();

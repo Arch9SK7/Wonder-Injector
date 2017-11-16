@@ -1,7 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+using System.IO;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace WonderInjection
@@ -30,6 +29,7 @@ namespace WonderInjection
         {
             Program.ntrClient.sendEmptyPacket(901);
             Program.ntrClient.log("Will be disconnected in 10 seconds to enhance performance.");
+            Program.f1.startAutoDisconnect();
         }
 
         public void bpdis(uint id)
@@ -115,6 +115,15 @@ namespace WonderInjection
         public void writebyte(uint addr, byte buf, int pid = -1)
         {
             Program.ntrClient.sendWriteMemPacketByte(addr, (uint)pid, buf);
+        }
+
+        public void sendfile(String localPath, String remotePath)
+        {
+            FileStream fs = new FileStream(localPath, FileMode.Open);
+            byte[] buf = new byte[fs.Length];
+            fs.Read(buf, 0, buf.Length);
+            fs.Close();
+            Program.ntrClient.sendSaveFilePacket(remotePath, buf);
         }
     }
 

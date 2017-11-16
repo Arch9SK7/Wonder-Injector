@@ -31,8 +31,9 @@ namespace WonderInjection
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
-            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.tc_Control = new System.Windows.Forms.TabControl();
             this.tp_Injection = new System.Windows.Forms.TabPage();
             this.btn_WCInject = new System.Windows.Forms.Button();
             this.btn_WCDelete = new System.Windows.Forms.Button();
@@ -57,6 +58,8 @@ namespace WonderInjection
             this.btn_SFDumpSave = new System.Windows.Forms.Button();
             this.btn_SFBrowse = new System.Windows.Forms.Button();
             this.tb_SaveFile = new System.Windows.Forms.TextBox();
+            this.tp_About = new System.Windows.Forms.TabPage();
+            this.label5 = new System.Windows.Forms.Label();
             this.tp_Credits = new System.Windows.Forms.TabPage();
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.tb_IP = new System.Windows.Forms.TextBox();
@@ -68,30 +71,36 @@ namespace WonderInjection
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.ofd_Injection = new System.Windows.Forms.OpenFileDialog();
             this.ofd_WCInjection = new System.Windows.Forms.OpenFileDialog();
-            this.tabControl1.SuspendLayout();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.timer2 = new System.Windows.Forms.Timer(this.components);
+            this.disconnectTimer = new System.Windows.Forms.Timer(this.components);
+            this.tc_Control.SuspendLayout();
             this.tp_Injection.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nud_SlotWCInjection)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nud_CountInjection)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nud_SlotInjection)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nud_BoxInjection)).BeginInit();
             this.tp_SaveDump.SuspendLayout();
+            this.tp_About.SuspendLayout();
             this.tp_Credits.SuspendLayout();
             this.SuspendLayout();
             // 
-            // tabControl1
+            // tc_Control
             // 
-            this.tabControl1.Controls.Add(this.tp_Injection);
-            this.tabControl1.Controls.Add(this.tp_SaveDump);
-            this.tabControl1.Controls.Add(this.tp_Credits);
-            this.tabControl1.Font = new System.Drawing.Font("Hylia Serif Beta", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tabControl1.Location = new System.Drawing.Point(6, 44);
-            this.tabControl1.Name = "tabControl1";
-            this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(437, 306);
-            this.tabControl1.TabIndex = 0;
+            this.tc_Control.Controls.Add(this.tp_Injection);
+            this.tc_Control.Controls.Add(this.tp_SaveDump);
+            this.tc_Control.Controls.Add(this.tp_About);
+            this.tc_Control.Controls.Add(this.tp_Credits);
+            this.tc_Control.Font = new System.Drawing.Font("Hylia Serif Beta", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tc_Control.Location = new System.Drawing.Point(6, 44);
+            this.tc_Control.Name = "tc_Control";
+            this.tc_Control.SelectedIndex = 0;
+            this.tc_Control.Size = new System.Drawing.Size(437, 306);
+            this.tc_Control.TabIndex = 0;
             // 
             // tp_Injection
             // 
+            this.tp_Injection.AllowDrop = true;
             this.tp_Injection.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.tp_Injection.Controls.Add(this.btn_WCInject);
             this.tp_Injection.Controls.Add(this.btn_WCDelete);
@@ -117,6 +126,9 @@ namespace WonderInjection
             this.tp_Injection.Size = new System.Drawing.Size(429, 280);
             this.tp_Injection.TabIndex = 0;
             this.tp_Injection.Text = "Injection";
+            this.tp_Injection.Click += new System.EventHandler(this.tp_Injection_Click);
+            this.tp_Injection.DragDrop += new System.Windows.Forms.DragEventHandler(this.tp_Injection_DragDrop);
+            this.tp_Injection.DragEnter += new System.Windows.Forms.DragEventHandler(this.tp_Injection_DragEnter);
             // 
             // btn_WCInject
             // 
@@ -169,7 +181,6 @@ namespace WonderInjection
             0,
             0,
             0});
-            this.nud_SlotWCInjection.ValueChanged += new System.EventHandler(this.nud_SlotWCInjection_ValueChanged);
             // 
             // btn_BrowseWCInject
             // 
@@ -187,7 +198,6 @@ namespace WonderInjection
             this.tb_WCInjection.Name = "tb_WCInjection";
             this.tb_WCInjection.Size = new System.Drawing.Size(329, 21);
             this.tb_WCInjection.TabIndex = 12;
-            this.tb_WCInjection.TextChanged += new System.EventHandler(this.tb_WCInjection_TextChanged);
             // 
             // label12
             // 
@@ -196,7 +206,7 @@ namespace WonderInjection
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(86, 13);
             this.label12.TabIndex = 11;
-            this.label12.Text = "WC6/WC7 File:";
+            this.label12.Text = "WC7 File:";
             // 
             // btn_Inject
             // 
@@ -244,7 +254,6 @@ namespace WonderInjection
             this.label3.Size = new System.Drawing.Size(29, 13);
             this.label3.TabIndex = 6;
             this.label3.Text = "Box:";
-            this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // nud_CountInjection
             // 
@@ -267,7 +276,6 @@ namespace WonderInjection
             0,
             0,
             0});
-            this.nud_CountInjection.ValueChanged += new System.EventHandler(this.nud_CountInjection_ValueChanged);
             // 
             // nud_SlotInjection
             // 
@@ -342,8 +350,8 @@ namespace WonderInjection
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(82, 13);
             this.label13.TabIndex = 0;
-            this.label13.Text = "PK6/PK7 File:";
-            this.label13.Click += new System.EventHandler(this.label3_Click);
+            this.label13.Text = "EKX/PKX File:";
+            this.label13.Click += new System.EventHandler(this.label13_Click);
             // 
             // tp_SaveDump
             // 
@@ -396,6 +404,27 @@ namespace WonderInjection
             this.tb_SaveFile.Size = new System.Drawing.Size(333, 21);
             this.tb_SaveFile.TabIndex = 0;
             // 
+            // tp_About
+            // 
+            this.tp_About.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.tp_About.Controls.Add(this.label5);
+            this.tp_About.Location = new System.Drawing.Point(4, 22);
+            this.tp_About.Name = "tp_About";
+            this.tp_About.Size = new System.Drawing.Size(429, 280);
+            this.tp_About.TabIndex = 3;
+            this.tp_About.Text = "About";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Hylia Serif Beta", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(2, 3);
+            this.label5.MaximumSize = new System.Drawing.Size(425, 430);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(425, 209);
+            this.label5.TabIndex = 0;
+            this.label5.Text = resources.GetString("label5.Text");
+            // 
             // tp_Credits
             // 
             this.tp_Credits.Controls.Add(this.richTextBox1);
@@ -427,7 +456,6 @@ namespace WonderInjection
             this.tb_IP.Size = new System.Drawing.Size(100, 21);
             this.tb_IP.TabIndex = 0;
             this.tb_IP.Text = "192.168.0.14";
-            this.tb_IP.TextChanged += new System.EventHandler(this.tb_IP_TextChanged);
             // 
             // btn_Connect
             // 
@@ -488,7 +516,7 @@ namespace WonderInjection
             this.linkLabel1.Size = new System.Drawing.Size(44, 13);
             this.linkLabel1.TabIndex = 7;
             this.linkLabel1.TabStop = true;
-            this.linkLabel1.Text = "Ver. 0.5";
+            this.linkLabel1.Text = "Ver. 0.8";
             // 
             // ofd_Injection
             // 
@@ -497,6 +525,12 @@ namespace WonderInjection
             // ofd_WCInjection
             // 
             this.ofd_WCInjection.FileName = "WC.wc7";
+            // 
+            // timer1
+            // 
+            this.timer1.Enabled = true;
+            this.timer1.Interval = 1000;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // MainForm
             // 
@@ -510,11 +544,11 @@ namespace WonderInjection
             this.Controls.Add(this.btn_Disconnect);
             this.Controls.Add(this.btn_Connect);
             this.Controls.Add(this.tb_IP);
-            this.Controls.Add(this.tabControl1);
+            this.Controls.Add(this.tc_Control);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "MainForm";
             this.Text = "Wonder Injector";
-            this.tabControl1.ResumeLayout(false);
+            this.tc_Control.ResumeLayout(false);
             this.tp_Injection.ResumeLayout(false);
             this.tp_Injection.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nud_SlotWCInjection)).EndInit();
@@ -523,6 +557,8 @@ namespace WonderInjection
             ((System.ComponentModel.ISupportInitialize)(this.nud_BoxInjection)).EndInit();
             this.tp_SaveDump.ResumeLayout(false);
             this.tp_SaveDump.PerformLayout();
+            this.tp_About.ResumeLayout(false);
+            this.tp_About.PerformLayout();
             this.tp_Credits.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -531,7 +567,7 @@ namespace WonderInjection
 
         #endregion
 
-        private System.Windows.Forms.TabControl tabControl1;
+        private System.Windows.Forms.TabControl tc_Control;
         private System.Windows.Forms.TabPage tp_Injection;
         private System.Windows.Forms.TabPage tp_SaveDump;
         private System.Windows.Forms.TabPage tp_Credits;
@@ -567,6 +603,11 @@ namespace WonderInjection
         private System.Windows.Forms.RichTextBox richTextBox1;
         private OpenFileDialog ofd_Injection;
         private OpenFileDialog ofd_WCInjection;
+        private Timer timer1;
+        private Timer timer2;
+        private Timer disconnectTimer;
+        private TabPage tp_About;
+        private Label label5;
     }
 }
 
