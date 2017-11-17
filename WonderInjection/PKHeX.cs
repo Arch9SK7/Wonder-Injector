@@ -8,12 +8,12 @@ namespace WonderInjection
 {
     public class PKHeX
     {
-        public bool Gen7 => Version >= 30 && Version <= 31;
+        public bool Gen7 => Version >= 30 && Version <= 33;
         public bool Gen6 => Version >= 24 && Version <= 29;
         public bool Gen5 => Version >= 20 && Version <= 23;
         public bool Gen4 => Version >= 7 && Version <= 12 && Version != 9;
         public bool Gen3 => Version >= 1 && Version <= 5 || Version == 15;
-
+        public bool GenU => !(Gen7 || Gen6 || Gen5 || Gen4 || Gen3);
         public int GenNumber
         {
             get
