@@ -204,7 +204,7 @@ namespace WonderInjection
             this.label12.AutoSize = true;
             this.label12.Location = new System.Drawing.Point(7, 159);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(86, 13);
+            this.label12.Size = new System.Drawing.Size(58, 13);
             this.label12.TabIndex = 11;
             this.label12.Text = "WC7 File:";
             // 
@@ -348,7 +348,7 @@ namespace WonderInjection
             this.label13.AutoSize = true;
             this.label13.Location = new System.Drawing.Point(7, 24);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(82, 13);
+            this.label13.Size = new System.Drawing.Size(84, 13);
             this.label13.TabIndex = 0;
             this.label13.Text = "EKX/PKX File:";
             this.label13.Click += new System.EventHandler(this.label13_Click);
@@ -417,11 +417,11 @@ namespace WonderInjection
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Hylia Serif Beta", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Font = new System.Drawing.Font("Sitka Subheading", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.Location = new System.Drawing.Point(2, 3);
             this.label5.MaximumSize = new System.Drawing.Size(425, 430);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(425, 209);
+            this.label5.Size = new System.Drawing.Size(418, 230);
             this.label5.TabIndex = 0;
             this.label5.Text = resources.GetString("label5.Text");
             // 
@@ -443,9 +443,7 @@ namespace WonderInjection
             this.richTextBox1.Name = "richTextBox1";
             this.richTextBox1.Size = new System.Drawing.Size(424, 274);
             this.richTextBox1.TabIndex = 0;
-            this.richTextBox1.Text = "@Kaphotics for the base code borrowed from PKHeX.\nwww.projectpokemon.com\nhttps://" +
-    "github.com/kwsch/PKHeX\n\n@Arch9SK7 for GUI https://github.com/Arch9SK7\n\nAlso all " +
-    "others for save file and ntr RE work.";
+            this.richTextBox1.Text = resources.GetString("richTextBox1.Text");
             // 
             // tb_IP
             // 

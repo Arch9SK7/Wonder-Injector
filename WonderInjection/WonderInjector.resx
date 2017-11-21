@@ -127,6 +127,15 @@ or Checkpoint.
 (This function is still under development)
 </value>
   </data>
+  <data name="richTextBox1.Text" xml:space="preserve">
+    <value>@Kaphotics for the base code borrowed from PKHeX.
+www.projectpokemon.com
+https://github.com/kwsch/PKHeX
+
+@Arch9SK7 for GUI &amp; conversion https://github.com/Arch9SK7
+
+Also all others for save file and ntr RE work.</value>
+  </data>
   <metadata name="ofd_Injection.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>
