@@ -101,7 +101,7 @@ namespace WonderInjection
             // tp_Injection
             // 
             this.tp_Injection.AllowDrop = true;
-            this.tp_Injection.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.tp_Injection.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.tp_Injection.Controls.Add(this.btn_WCInject);
             this.tp_Injection.Controls.Add(this.btn_WCDelete);
             this.tp_Injection.Controls.Add(this.label7);
@@ -355,7 +355,7 @@ namespace WonderInjection
             // 
             // tp_SaveDump
             // 
-            this.tp_SaveDump.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.tp_SaveDump.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.tp_SaveDump.Controls.Add(this.label100);
             this.tp_SaveDump.Controls.Add(this.btn_SFDumpSave);
             this.tp_SaveDump.Controls.Add(this.btn_SFBrowse);
@@ -406,7 +406,7 @@ namespace WonderInjection
             // 
             // tp_About
             // 
-            this.tp_About.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.tp_About.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
             this.tp_About.Controls.Add(this.label5);
             this.tp_About.Location = new System.Drawing.Point(4, 22);
             this.tp_About.Name = "tp_About";
@@ -417,6 +417,7 @@ namespace WonderInjection
             // label5
             // 
             this.label5.AutoSize = true;
+            this.label5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
             this.label5.Font = new System.Drawing.Font("Sitka Subheading", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.Location = new System.Drawing.Point(2, 3);
             this.label5.MaximumSize = new System.Drawing.Size(425, 430);
@@ -438,7 +439,7 @@ namespace WonderInjection
             // 
             // richTextBox1
             // 
-            this.richTextBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.richTextBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
             this.richTextBox1.Location = new System.Drawing.Point(2, 3);
             this.richTextBox1.Name = "richTextBox1";
             this.richTextBox1.Size = new System.Drawing.Size(424, 274);
