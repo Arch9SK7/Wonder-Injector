@@ -29,12 +29,7 @@ namespace WonderInjection
 
 
 
-        public ArrayList banlist = new ArrayList();
         static Dictionary<uint, DataReadyWaiting> waitingForData = new Dictionary<uint, DataReadyWaiting>();
-        public ArrayList commented = new ArrayList();
-        public Dictionary<int, Tuple<string, string, int, int, int, ArrayList>> giveawayDetails = new Dictionary<int, Tuple<string, string, int, int, int, ArrayList>>();
-        public Dictionary<int, string> countries = new Dictionary<int, string>();
-        public Dictionary<int, string> regions = new Dictionary<int, string>();
 
         public MainForm()
         {
@@ -134,61 +129,7 @@ namespace WonderInjection
             }
         }
 
-        public static void ListViewToCSV(ListView listView, string filePath, bool includeHidden)
-        {
-            //make header string
-            StringBuilder result = new StringBuilder();
-            WriteCSVRow(result, listView.Columns.Count, i => includeHidden || listView.Columns[i].Width > 0, i => listView.Columns[i].Text);
 
-            //export data rows
-            foreach (ListViewItem listItem in listView.Items)
-                WriteCSVRow(result, listView.Columns.Count, i => includeHidden || listView.Columns[i].Width > 0, i => listItem.SubItems[i].Text);
-
-            File.WriteAllText(filePath, result.ToString());
-        }
-
-        private static void WriteCSVRow(StringBuilder result, int itemsCount, Func<int, bool> isColumnNeeded, Func<int, string> columnValue)
-        {
-            bool isFirstTime = true;
-            for (int i = 0; i < itemsCount; i++)
-            {
-                if (!isColumnNeeded(i))
-                    continue;
-
-                if (!isFirstTime)
-                    result.Append(",");
-                isFirstTime = false;
-
-                result.Append(String.Format("\"{0}\"", columnValue(i)));
-            }
-            result.AppendLine();
-        }
-
-        private void ImportCSV()
-        {
-            FileStream srcFS;
-            srcFS = new FileStream(AppDomain.CurrentDomain.BaseDirectory + "\\export.csv", FileMode.Open);
-            StreamReader srcSR = new StreamReader(srcFS, System.Text.Encoding.Default);
-            srcSR.ReadLine();
-            do
-            {
-                string ins = srcSR.ReadLine();
-                if (ins != null)
-                {
-                    string[] columns = ins.Replace("\"", "").Split(',');
-
-                    ListViewItem lvi = new ListViewItem(columns[0]);
-
-                    for (int i = 1; i < columns.Count(); i++)
-                    {
-                        lvi.SubItems.Add(columns[i]);
-                    }
-
-                }
-                else break;
-            } while (true);
-            srcSR.Close();
-        }
 
         private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
         {
