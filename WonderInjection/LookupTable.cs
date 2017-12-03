@@ -2963,29 +2963,7 @@ namespace WonderInjection
 
         #endregion Experience
 
-        #region Buttons
 
-        public uint nokey = 0xFFF;
-        public uint keyA = 0xFFE;
-        public uint keyB = 0xFFD;
-        public uint keyX = 0xBFF;
-        public uint keyY = 0x7FF;
-        public uint keyR = 0xEFF;
-        public uint keyL = 0xDFF;
-        public uint keySTART = 0xFF7;
-        public uint keySELECT = 0xFFB;
-        public uint DpadUP = 0xFBF;
-        public uint DpadDOWN = 0xF7F;
-        public uint DpadLEFT = 0xFDF;
-        public uint DpadRIGHT = 0xFEF;
-        public uint runUP = 0xFBD;
-        public uint runDOWN = 0xF7D;
-        public uint runLEFT = 0xFDD;
-        public uint runRIGHT = 0xFED;
-        public uint softReset = 0xCF7;
-        public uint notouch = 0x02000000;
-
-        #endregion Buttons
 
         #region Box Position
 

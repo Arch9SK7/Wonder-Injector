@@ -74,6 +74,7 @@ namespace WonderInjection
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.timer2 = new System.Windows.Forms.Timer(this.components);
             this.disconnectTimer = new System.Windows.Forms.Timer(this.components);
+            this.btn_ConvertMode = new System.Windows.Forms.Button();
             this.tc_Control.SuspendLayout();
             this.tp_Injection.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nud_SlotWCInjection)).BeginInit();
@@ -92,7 +93,7 @@ namespace WonderInjection
             this.tc_Control.Controls.Add(this.tp_About);
             this.tc_Control.Controls.Add(this.tp_Credits);
             this.tc_Control.Font = new System.Drawing.Font("Hylia Serif Beta", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tc_Control.Location = new System.Drawing.Point(6, 44);
+            this.tc_Control.Location = new System.Drawing.Point(6, 65);
             this.tc_Control.Name = "tc_Control";
             this.tc_Control.SelectedIndex = 0;
             this.tc_Control.Size = new System.Drawing.Size(437, 306);
@@ -510,12 +511,13 @@ namespace WonderInjection
             // linkLabel1
             // 
             this.linkLabel1.AutoSize = true;
-            this.linkLabel1.Location = new System.Drawing.Point(381, 349);
+            this.linkLabel1.Location = new System.Drawing.Point(394, 373);
             this.linkLabel1.Name = "linkLabel1";
             this.linkLabel1.Size = new System.Drawing.Size(44, 13);
             this.linkLabel1.TabIndex = 7;
             this.linkLabel1.TabStop = true;
-            this.linkLabel1.Text = "Ver. 0.8";
+            this.linkLabel1.Text = "Ver. 1.0";
+            this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
             // 
             // ofd_Injection
             // 
@@ -531,11 +533,23 @@ namespace WonderInjection
             this.timer1.Interval = 1000;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
+            // btn_ConvertMode
+            // 
+            this.btn_ConvertMode.Font = new System.Drawing.Font("Hylia Serif Beta", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_ConvertMode.Location = new System.Drawing.Point(315, 36);
+            this.btn_ConvertMode.Name = "btn_ConvertMode";
+            this.btn_ConvertMode.Size = new System.Drawing.Size(75, 23);
+            this.btn_ConvertMode.TabIndex = 30;
+            this.btn_ConvertMode.Text = "Ultra Mode";
+            this.btn_ConvertMode.UseVisualStyleBackColor = true;
+            this.btn_ConvertMode.Click += new System.EventHandler(this.btn_ConvertMode_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(447, 362);
+            this.ClientSize = new System.Drawing.Size(447, 390);
+            this.Controls.Add(this.btn_ConvertMode);
             this.Controls.Add(this.linkLabel1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -607,6 +621,7 @@ namespace WonderInjection
         private Timer disconnectTimer;
         private TabPage tp_About;
         private Label label5;
+        private Button btn_ConvertMode;
     }
 }
 

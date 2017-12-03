@@ -21,12 +21,11 @@ namespace WonderInjection
         public string lastlog = "";
         public int pid = 0;
         public PKHeX dumpedPKHeX = new PKHeX();
-
+        //Possibly Ultra box layout Offset? 0x33015AB0
+        //Possibly Ultra Wondercard Offset? 0x33075BF4
         public uint boxOff = 0x330D9838;
         public uint wcOff = 0x331397E4;
         public uint partyOff = 0x34195E10;
-
-
 
 
         static Dictionary<uint, DataReadyWaiting> waitingForData = new Dictionary<uint, DataReadyWaiting>();
@@ -96,6 +95,7 @@ namespace WonderInjection
             btn_Delete.Enabled = true;
             btn_WCInject.Enabled = true;
             btn_WCDelete.Enabled = true;
+            btn_ConvertMode.Enabled = true;
         }
 
         public void undoButtons()
@@ -106,7 +106,7 @@ namespace WonderInjection
             btn_Delete.Enabled = false;
             btn_WCInject.Enabled = false;
             btn_WCDelete.Enabled = false;
-
+            btn_ConvertMode.Enabled = false;
         }
 
         public void connectCheck(object sender, EventArgs e)
@@ -352,6 +352,34 @@ namespace WonderInjection
         private void label13_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void btn_ConvertMode_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Ultra Support Mode Activated!", "WonderInjection", MessageBoxButtons.OK);
+            return;
+        }
+
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            try
+            {
+                VisitLink();
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Unable to open link that was clicked.");
+            }
+        }
+
+        private void VisitLink()
+        {
+            // Change the color of the link text by setting LinkVisited   
+            // to true.  
+            linkLabel1.LinkVisited = true;
+            //Call the Process.Start method to open the default browser   
+            //with a URL:  
+            System.Diagnostics.Process.Start("https://github.com/Arch9SK7/Wonder-Injector/releases/latest");
         }
     }
 
