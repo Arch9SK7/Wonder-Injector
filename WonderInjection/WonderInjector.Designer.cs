@@ -423,7 +423,7 @@ namespace WonderInjection
             this.label5.Location = new System.Drawing.Point(2, 3);
             this.label5.MaximumSize = new System.Drawing.Size(425, 430);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(418, 230);
+            this.label5.Size = new System.Drawing.Size(409, 230);
             this.label5.TabIndex = 0;
             this.label5.Text = resources.GetString("label5.Text");
             // 

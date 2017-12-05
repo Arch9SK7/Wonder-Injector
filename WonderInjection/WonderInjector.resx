@@ -119,7 +119,7 @@
   </resheader>
   <data name="label5.Text" xml:space="preserve">
     <value>This program is meant to be used to instantly inject any wondercard or pokemon file from PKHeX instantly. 
-Sure there is QR injection but why use an ips patch when you can run ntr cfw alongside your game
+You can even run this alongside any code.ips and plugin patches for your games
 then just instant inject live as you play.
 
 The second function of my program here is live save file dumping without the use of a save manager like JKSM
