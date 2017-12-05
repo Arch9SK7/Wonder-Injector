@@ -28,6 +28,7 @@ namespace WonderInjection
         public uint partyOff = 0x34195E10;
 
 
+
         static Dictionary<uint, DataReadyWaiting> waitingForData = new Dictionary<uint, DataReadyWaiting>();
 
         public MainForm()
@@ -45,6 +46,7 @@ namespace WonderInjection
             ofd_Injection.InitialDirectory = path;
             ofd_WCInjection.InitialDirectory = path;
             btn_Disconnect.Enabled = false;
+            btn_ConvertMode.Enabled = false;
         }
 
         public void startAutoDisconnect()
@@ -129,7 +131,19 @@ namespace WonderInjection
             }
         }
 
-
+        public void changeOffset(uint boxOff, uint wcOff)
+        {
+            if (isDefaultOffset(boxOff, wcOff))
+            {
+                boxOff = 0x33015AB0;
+                wcOff = 0x33075BF4;
+            }
+            else
+            {
+                boxOff = 0x330D9838;
+                wcOff = 0x331397E4;
+            }
+        }
 
         private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
         {
@@ -356,9 +370,35 @@ namespace WonderInjection
 
         private void btn_ConvertMode_Click(object sender, EventArgs e)
         {
+            changeOffset(isDefaultOffset);
+
             MessageBox.Show("Ultra Support Mode Activated!", "WonderInjection", MessageBoxButtons.OK);
             return;
         }
+
+        private void changeOffset(Func<uint, uint, bool> isDefaultOffset)
+        {
+            if (isDefaultOffset(boxOff, wcOff))
+            {
+                boxOff = 0x33015AB0;
+                wcOff = 0x33075BF4;
+            }
+            else
+            {
+                boxOff = 0x330D9838;
+                wcOff = 0x331397E4;
+            }
+        }
+
+        public bool isDefaultOffset(uint boxOff, uint wcOff)
+        {
+            if ((boxOff == 0x330D9838) && (wcOff == 0x331397E4))
+                return true;
+            else
+                return false;
+        }
+    
+    
 
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
