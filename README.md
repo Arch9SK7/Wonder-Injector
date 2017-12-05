@@ -1,7 +1,6 @@
 # Wonder-Injector
 NTR live save dumping and Pokemon/Wondercard injection for Pokemon Sun/Moon and Ultra Sun/Moon
-Requires you to be using NTR CFW or Mode 3 for old3ds.
-
+Requires you to be using NTR CFW. (NEW3DS/2DS ONLY, OLD CONSOLE SUPPORT REMOVED)
 
 # Instructions to use this:
 
@@ -9,7 +8,7 @@ Requires you to be using NTR CFW or Mode 3 for old3ds.
 Find your 3ds IP via either homebrew launcher or ftpd or whatever methods...
 then...
 
-- Boot up 3ds and run NTR CFW 3.6 or later or mode3 for old3ds
+- Boot up 3ds and run NTR CFW 3.6 or later
 - Start up your Sun or Moon game or Ultra games
 - Before selecting your save file, press home button to let the game hang on home menu
 - On Wonder Injector enter your 3DS IP address and connect. It shouldn't error provided you gave the right address.
@@ -20,3 +19,8 @@ then...
 ## Make your pokemon files all you wish on pkhex > found here https://projectpokemon.org/home/files/file/1-pkhex/
 
 ## and making things easier with editing your personal pokemon from your game by just dumping your save directly to the PC via the ftp connection this program makes so you can then just insta inject them again when finished.
+
+### Credits
+Kaphotics: For some of the base code
+
+Testers: Ed Brual, Proflayton123
