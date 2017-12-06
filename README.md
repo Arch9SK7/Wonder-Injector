@@ -14,6 +14,10 @@ then...
 - On Wonder Injector enter your 3DS IP address and connect. It shouldn't error provided you gave the right address.
 - After doing so, press the home button again to select your games save file, then play as you normally would but select any pokemon or wondercard files you wish for the program and just press inject... OR press dump save file to dump that to your chosen directory when that function is live (at this point you can also press Ultra mode for ultra sumo support)
 
+# Screenshot
+
+![screenshot_3](https://user-images.githubusercontent.com/19160117/33644598-aae97ea2-d9fa-11e7-968c-166687bf05f4.png)
+
 ## Tada You can now inject to your hearts content without removing your SD card :) 
 
 ## Make your pokemon files all you wish on pkhex > found here https://projectpokemon.org/home/files/file/1-pkhex/
