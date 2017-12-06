@@ -26,7 +26,7 @@ then...
 
 # Building
 
-PKHeX is a Windows Forms application which requires .NET Framework v4.6.
+Wonder Injector is a Windows Forms application which requires .NET Framework v4.6.
 The executable can be built with any compiler that supports C# 7.
 
 # Build Configurations
@@ -35,7 +35,7 @@ Use the Debug or Release build configurations when building using the .NET Frame
 
 # IDE
 
-PKHeX can be opened with IDEs such as Visual Studio or MonoDevelop by opening the .sln file.
+Wonder Injector can be opened with IDEs such as Visual Studio or MonoDevelop by opening the .sln file.
 
 # Credits
 
