@@ -372,7 +372,7 @@ namespace WonderInjection
         {
             changeOffset(isDefaultOffset);
 
-            MessageBox.Show("Ultra Support Mode Activated!", "WonderInjection", MessageBoxButtons.OK);
+            MessageBox.Show("Done!", "WonderInjection", MessageBoxButtons.OK);
             return;
         }
 
