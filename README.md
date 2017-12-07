@@ -42,3 +42,5 @@ Wonder Injector can be opened with IDEs such as Visual Studio or MonoDevelop by 
 Kaphotics: For some of the base code
 
 Testers: Ed Brual, Proflayton123
+
+GUI borrowed from Ledybot and redone by me
