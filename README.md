@@ -10,9 +10,9 @@ then...
 
 - Boot up 3ds and run NTR CFW 3.6 or later
 - Start up your Sun or Moon game or Ultra games
-- Before selecting your save file, press home button to let the game hang on home menu
+- Before selecting your save file, Enable debugger within Rosalina menu of Luma CFW.
 - On Wonder Injector enter your 3DS IP address and connect. It shouldn't error provided you gave the right address.
-- After doing so, press the home button again to select your games save file, then play as you normally would but select any pokemon or wondercard files you wish for the program and just press inject... OR press dump save file to dump that to your chosen directory when that function is live (at this point you can also press Ultra mode for ultra sumo support)
+- After doing so, Disable the debugger then select your games save file, then play as you normally would but select any pokemon or wondercard files you wish for the program and just press inject... OR press dump save file to dump that to your chosen directory when that function is live.
 
 # Screenshot
 
