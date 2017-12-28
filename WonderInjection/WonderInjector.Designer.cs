@@ -75,6 +75,7 @@ namespace WonderInjection
             this.timer2 = new System.Windows.Forms.Timer(this.components);
             this.disconnectTimer = new System.Windows.Forms.Timer(this.components);
             this.btn_ConvertMode = new System.Windows.Forms.Button();
+            this.rt_status = new System.Windows.Forms.RichTextBox();
             this.tc_Control.SuspendLayout();
             this.tp_Injection.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nud_SlotWCInjection)).BeginInit();
@@ -544,11 +545,27 @@ namespace WonderInjection
             this.btn_ConvertMode.UseVisualStyleBackColor = true;
             this.btn_ConvertMode.Click += new System.EventHandler(this.btn_ConvertMode_Click);
             // 
+            // rt_status
+            // 
+            this.rt_status.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.rt_status.BackColor = System.Drawing.SystemColors.Control;
+            this.rt_status.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.rt_status.Location = new System.Drawing.Point(6, 373);
+            this.rt_status.Multiline = false;
+            this.rt_status.Name = "rt_status";
+            this.rt_status.ReadOnly = true;
+            this.rt_status.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.None;
+            this.rt_status.Size = new System.Drawing.Size(277, 17);
+            this.rt_status.TabIndex = 31;
+            this.rt_status.Text = "Game Version:";
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(447, 390);
+            this.Controls.Add(this.rt_status);
             this.Controls.Add(this.btn_ConvertMode);
             this.Controls.Add(this.linkLabel1);
             this.Controls.Add(this.label2);
@@ -561,6 +578,7 @@ namespace WonderInjection
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "MainForm";
             this.Text = "Wonder Injector";
+            this.Load += new System.EventHandler(this.MainForm_Load_1);
             this.tc_Control.ResumeLayout(false);
             this.tp_Injection.ResumeLayout(false);
             this.tp_Injection.PerformLayout();
@@ -622,6 +640,7 @@ namespace WonderInjection
         private TabPage tp_About;
         private Label label5;
         private Button btn_ConvertMode;
+        private RichTextBox rt_status;
     }
 }
 

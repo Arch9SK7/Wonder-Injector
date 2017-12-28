@@ -26,7 +26,7 @@ namespace WonderInjection
         public uint boxOff = 0x330D9838;
         public uint wcOff = 0x331397E4;
         public uint partyOff = 0x34195E10;
-
+        
 
 
         static Dictionary<uint, DataReadyWaiting> waitingForData = new Dictionary<uint, DataReadyWaiting>();
@@ -79,6 +79,7 @@ namespace WonderInjection
             InfoReadyEventArgs args = (InfoReadyEventArgs)e;
 
             string log = args.info;
+            // Sun and Moon
             if (log.Contains("niji_loc"))
             {
                 string splitlog = log.Substring(log.IndexOf(", pname: niji_loc") - 8, log.Length - log.IndexOf(", pname: niji_loc"));
@@ -86,6 +87,41 @@ namespace WonderInjection
                 Program.helper.pid = pid;
                 Program.scriptHelper.write(0x3E14C0, BitConverter.GetBytes(0xE3A01000), pid);
                 MessageBox.Show("Connection Successful!");
+                Program.f1.ChangeStatus("Pokémon Sun/Moon Connected!");
+                Gamename = "SUMO";
+
+                boxOff = 0x330D9838;
+                wcOff = 0x331397E4;
+                partyOff = 0x34195E10;
+            }
+
+            // Ultra Sun and Moon
+            else if (log.Contains(", pname:   momiji"))
+            {
+                string splitlog = log.Substring(log.IndexOf(", pname:   momiji") - 8, log.Length - log.IndexOf(", pname:   momiji"));
+                pid = Convert.ToInt32("0x" + splitlog.Substring(0, 8), 16);
+                Program.helper.pid = pid;
+
+                Program.scriptHelper.write(0x3E14C0, BitConverter.GetBytes(0xE3A01000), pid);
+                MessageBox.Show("Connection Successful!");
+                Program.f1.ChangeStatus("Pokémon Ultra - Sun/Moon Connected!");
+                Gamename = "USUM";
+
+                boxOff = 0x33015AB0;
+                wcOff = 0x33075BF4;
+                partyOff = 0x33F7FA44;
+            }
+            this.Gamename = Gamename;
+            //Change Offsets of GameVersions
+            if (Gamename == "SUMO")
+            {
+                boxOff = 0x330d9838; //To inject the pokemon into box1slot1
+                wcOff = 0x331397E4;
+            }
+            else if (Gamename == "USUM")
+            {
+                boxOff = 0x33015AB0;
+                wcOff = 0x33075BF4;
             }
         }
 
@@ -117,6 +153,7 @@ namespace WonderInjection
             Program.scriptHelper.listprocess();
             setupButtons();
             Program.Connected = true;
+
         }
 
         static void handleDataReady(object sender, DataReadyEventArgs e)
@@ -130,6 +167,7 @@ namespace WonderInjection
                 waitingForData.Remove(e.seq);
             }
         }
+        public string Gamename { get; private set; }
 
         public void changeOffset(uint boxOff, uint wcOff)
         {
@@ -145,7 +183,17 @@ namespace WonderInjection
             }
         }
 
-        private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
+        public void ChangeStatus(string szNewStatus)
+        {
+            if (InvokeRequired)
+            {
+                this.Invoke(new Action<string>(ChangeStatus), new object[] { szNewStatus });
+                return;
+            }
+            this.rt_status.Text = "Game Version: " + szNewStatus;
+        }
+
+    private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
         {
             Properties.Settings.Default.IP = tb_IP.Text;
             Properties.Settings.Default.Save();
@@ -420,6 +468,11 @@ namespace WonderInjection
             //Call the Process.Start method to open the default browser   
             //with a URL:  
             System.Diagnostics.Process.Start("https://github.com/Arch9SK7/Wonder-Injector/releases/latest");
+        }
+
+        private void MainForm_Load_1(object sender, EventArgs e)
+        {
+
         }
     }
 
