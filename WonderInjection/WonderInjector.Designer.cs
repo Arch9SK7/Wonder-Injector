@@ -517,7 +517,7 @@ namespace WonderInjection
             this.linkLabel1.Size = new System.Drawing.Size(44, 13);
             this.linkLabel1.TabIndex = 7;
             this.linkLabel1.TabStop = true;
-            this.linkLabel1.Text = "Ver. 1.0";
+            this.linkLabel1.Text = "Ver. 1.1";
             this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
             // 
             // ofd_Injection
@@ -536,6 +536,7 @@ namespace WonderInjection
             // 
             // btn_ConvertMode
             // 
+            this.btn_ConvertMode.Enabled = false;
             this.btn_ConvertMode.Font = new System.Drawing.Font("Hylia Serif Beta", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_ConvertMode.Location = new System.Drawing.Point(315, 36);
             this.btn_ConvertMode.Name = "btn_ConvertMode";
@@ -543,6 +544,7 @@ namespace WonderInjection
             this.btn_ConvertMode.TabIndex = 30;
             this.btn_ConvertMode.Text = "Ultra Mode";
             this.btn_ConvertMode.UseVisualStyleBackColor = true;
+            this.btn_ConvertMode.Visible = false;
             this.btn_ConvertMode.Click += new System.EventHandler(this.btn_ConvertMode_Click);
             // 
             // rt_status
