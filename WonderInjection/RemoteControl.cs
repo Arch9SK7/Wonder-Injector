@@ -16,7 +16,7 @@ namespace WonderInjection
         PKHeX validator = new PKHeX();
 
         // Offsets for remote controls
-       
+
         public const int BOXSIZE = 30;
         public const int POKEBYTES = 232;
 

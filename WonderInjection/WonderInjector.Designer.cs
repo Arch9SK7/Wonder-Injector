@@ -35,6 +35,12 @@ namespace WonderInjection
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.tc_Control = new System.Windows.Forms.TabControl();
             this.tp_Injection = new System.Windows.Forms.TabPage();
+            this.btn_EggOff = new System.Windows.Forms.Button();
+            this.btn_EggOn = new System.Windows.Forms.Button();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.BoxAllInjection = new System.Windows.Forms.CheckBox();
+            this.label6 = new System.Windows.Forms.Label();
             this.btn_WCInject = new System.Windows.Forms.Button();
             this.btn_WCDelete = new System.Windows.Forms.Button();
             this.label7 = new System.Windows.Forms.Label();
@@ -76,6 +82,7 @@ namespace WonderInjection
             this.disconnectTimer = new System.Windows.Forms.Timer(this.components);
             this.btn_ConvertMode = new System.Windows.Forms.Button();
             this.rt_status = new System.Windows.Forms.RichTextBox();
+            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.tc_Control.SuspendLayout();
             this.tp_Injection.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nud_SlotWCInjection)).BeginInit();
@@ -97,13 +104,19 @@ namespace WonderInjection
             this.tc_Control.Location = new System.Drawing.Point(6, 65);
             this.tc_Control.Name = "tc_Control";
             this.tc_Control.SelectedIndex = 0;
-            this.tc_Control.Size = new System.Drawing.Size(437, 306);
+            this.tc_Control.Size = new System.Drawing.Size(437, 375);
             this.tc_Control.TabIndex = 0;
             // 
             // tp_Injection
             // 
             this.tp_Injection.AllowDrop = true;
             this.tp_Injection.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.tp_Injection.Controls.Add(this.btn_EggOff);
+            this.tp_Injection.Controls.Add(this.btn_EggOn);
+            this.tp_Injection.Controls.Add(this.comboBox1);
+            this.tp_Injection.Controls.Add(this.label8);
+            this.tp_Injection.Controls.Add(this.BoxAllInjection);
+            this.tp_Injection.Controls.Add(this.label6);
             this.tp_Injection.Controls.Add(this.btn_WCInject);
             this.tp_Injection.Controls.Add(this.btn_WCDelete);
             this.tp_Injection.Controls.Add(this.label7);
@@ -125,12 +138,83 @@ namespace WonderInjection
             this.tp_Injection.Location = new System.Drawing.Point(4, 22);
             this.tp_Injection.Name = "tp_Injection";
             this.tp_Injection.Padding = new System.Windows.Forms.Padding(3);
-            this.tp_Injection.Size = new System.Drawing.Size(429, 280);
+            this.tp_Injection.Size = new System.Drawing.Size(429, 349);
             this.tp_Injection.TabIndex = 0;
             this.tp_Injection.Text = "Injection";
             this.tp_Injection.Click += new System.EventHandler(this.tp_Injection_Click);
             this.tp_Injection.DragDrop += new System.Windows.Forms.DragEventHandler(this.tp_Injection_DragDrop);
             this.tp_Injection.DragEnter += new System.Windows.Forms.DragEventHandler(this.tp_Injection_DragEnter);
+            // 
+            // btn_EggOff
+            // 
+            this.btn_EggOff.Location = new System.Drawing.Point(288, 319);
+            this.btn_EggOff.Name = "btn_EggOff";
+            this.btn_EggOff.Size = new System.Drawing.Size(75, 23);
+            this.btn_EggOff.TabIndex = 24;
+            this.btn_EggOff.Text = "InActive";
+            this.btn_EggOff.UseVisualStyleBackColor = true;
+            this.btn_EggOff.Click += new System.EventHandler(this.btn_EggOff_Click);
+            // 
+            // btn_EggOn
+            // 
+            this.btn_EggOn.Location = new System.Drawing.Point(207, 319);
+            this.btn_EggOn.Name = "btn_EggOn";
+            this.btn_EggOn.Size = new System.Drawing.Size(75, 23);
+            this.btn_EggOn.TabIndex = 23;
+            this.btn_EggOn.Text = "Active";
+            this.btn_EggOn.UseVisualStyleBackColor = true;
+            this.btn_EggOn.Click += new System.EventHandler(this.btn_EggOn_Click);
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Items.AddRange(new object[] {
+            "ENG",
+            "FRE",
+            "GER",
+            "ITA",
+            "JAP",
+            "KOR",
+            "SPA"});
+            this.comboBox1.Location = new System.Drawing.Point(10, 283);
+            this.comboBox1.MaxDropDownItems = 7;
+            this.comboBox1.MaxLength = 3;
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(121, 21);
+            this.comboBox1.Sorted = true;
+            this.comboBox1.TabIndex = 22;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(7, 324);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(194, 13);
+            this.label8.TabIndex = 21;
+            this.label8.Text = "Egg Always Available With Nursery:";
+            // 
+            // BoxAllInjection
+            // 
+            this.BoxAllInjection.AutoSize = true;
+            this.BoxAllInjection.Location = new System.Drawing.Point(231, 87);
+            this.BoxAllInjection.Name = "BoxAllInjection";
+            this.BoxAllInjection.Size = new System.Drawing.Size(108, 17);
+            this.BoxAllInjection.TabIndex = 20;
+            this.BoxAllInjection.Text = "Inject all Boxes";
+            this.BoxAllInjection.UseVisualStyleBackColor = true;
+            this.BoxAllInjection.CheckedChanged += new System.EventHandler(this.BoxAllInjection_CheckedChanged);
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(224, 68);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(122, 13);
+            this.label6.TabIndex = 19;
+            this.label6.Text = "(Mainly for Giveaways)";
             // 
             // btn_WCInject
             // 
@@ -365,7 +449,7 @@ namespace WonderInjection
             this.tp_SaveDump.Location = new System.Drawing.Point(4, 22);
             this.tp_SaveDump.Name = "tp_SaveDump";
             this.tp_SaveDump.Padding = new System.Windows.Forms.Padding(3);
-            this.tp_SaveDump.Size = new System.Drawing.Size(429, 280);
+            this.tp_SaveDump.Size = new System.Drawing.Size(429, 349);
             this.tp_SaveDump.TabIndex = 1;
             this.tp_SaveDump.Text = "Save File";
             // 
@@ -412,7 +496,7 @@ namespace WonderInjection
             this.tp_About.Controls.Add(this.label5);
             this.tp_About.Location = new System.Drawing.Point(4, 22);
             this.tp_About.Name = "tp_About";
-            this.tp_About.Size = new System.Drawing.Size(429, 280);
+            this.tp_About.Size = new System.Drawing.Size(429, 349);
             this.tp_About.TabIndex = 3;
             this.tp_About.Text = "About";
             // 
@@ -434,7 +518,7 @@ namespace WonderInjection
             this.tp_Credits.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tp_Credits.Location = new System.Drawing.Point(4, 22);
             this.tp_Credits.Name = "tp_Credits";
-            this.tp_Credits.Size = new System.Drawing.Size(429, 280);
+            this.tp_Credits.Size = new System.Drawing.Size(429, 349);
             this.tp_Credits.TabIndex = 2;
             this.tp_Credits.Text = "Credits";
             this.tp_Credits.UseVisualStyleBackColor = true;
@@ -512,7 +596,7 @@ namespace WonderInjection
             // linkLabel1
             // 
             this.linkLabel1.AutoSize = true;
-            this.linkLabel1.Location = new System.Drawing.Point(394, 373);
+            this.linkLabel1.Location = new System.Drawing.Point(395, 443);
             this.linkLabel1.Name = "linkLabel1";
             this.linkLabel1.Size = new System.Drawing.Size(44, 13);
             this.linkLabel1.TabIndex = 7;
@@ -553,7 +637,7 @@ namespace WonderInjection
             | System.Windows.Forms.AnchorStyles.Right)));
             this.rt_status.BackColor = System.Drawing.SystemColors.Control;
             this.rt_status.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.rt_status.Location = new System.Drawing.Point(6, 373);
+            this.rt_status.Location = new System.Drawing.Point(6, 443);
             this.rt_status.Multiline = false;
             this.rt_status.Name = "rt_status";
             this.rt_status.ReadOnly = true;
@@ -566,7 +650,7 @@ namespace WonderInjection
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(447, 390);
+            this.ClientSize = new System.Drawing.Size(447, 460);
             this.Controls.Add(this.rt_status);
             this.Controls.Add(this.btn_ConvertMode);
             this.Controls.Add(this.linkLabel1);
@@ -643,6 +727,13 @@ namespace WonderInjection
         private Label label5;
         private Button btn_ConvertMode;
         private RichTextBox rt_status;
+        private Label label6;
+        private CheckBox BoxAllInjection;
+        private ComboBox comboBox1;
+        private Label label8;
+        private System.ComponentModel.BackgroundWorker backgroundWorker1;
+        private Button btn_EggOff;
+        private Button btn_EggOn;
     }
 }
 

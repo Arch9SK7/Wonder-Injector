@@ -21,12 +21,15 @@ namespace WonderInjection
         public string lastlog = "";
         public int pid = 0;
         public PKHeX dumpedPKHeX = new PKHeX();
-        //Possibly Ultra box layout Offset? 0x33015AB0
-        //Possibly Ultra Wondercard Offset? 0x33075BF4
+        /* Possibly Ultra box layout Offset? 0x33015AB0
+        Possibly Ultra Wondercard Offset? 0x33075BF4
+        Possibly Ultra Egg Location Offset? 0x3307B1EC */
         public uint boxOff = 0x330D9838;
         public uint wcOff = 0x331397E4;
         public uint partyOff = 0x34195E10;
-        
+        private uint eggOff = 0x3313EDD8;
+        public EggBot eggbot;
+
 
 
         static Dictionary<uint, DataReadyWaiting> waitingForData = new Dictionary<uint, DataReadyWaiting>();
@@ -93,6 +96,7 @@ namespace WonderInjection
                 boxOff = 0x330D9838;
                 wcOff = 0x331397E4;
                 partyOff = 0x34195E10;
+                eggOff = 0x3313EDD8;
             }
 
             // Ultra Sun and Moon
@@ -110,19 +114,22 @@ namespace WonderInjection
                 boxOff = 0x33015AB0;
                 wcOff = 0x33075BF4;
                 partyOff = 0x33F7FA44;
-            }
+                eggOff = 0x3307B1EC;
+    }
             this.Gamename = Gamename;
             //Change Offsets of GameVersions
             if (Gamename == "SUMO")
             {
                 boxOff = 0x330d9838; //To inject the pokemon into box1slot1
                 wcOff = 0x331397E4;
-            }
+                eggOff = 0x3313EDD8;
+    }
             else if (Gamename == "USUM")
             {
                 boxOff = 0x33015AB0;
                 wcOff = 0x33075BF4;
-            }
+                eggOff = 0x3307B1EC;
+    }
         }
 
         public void setupButtons()
@@ -204,6 +211,7 @@ namespace WonderInjection
             tb_IP.Text = Properties.Settings.Default.IP;
         }
 
+
         private void btn_BrowseInject_Click(object sender, EventArgs e)
         {
             if (ofd_Injection.ShowDialog() == DialogResult.OK)
@@ -245,6 +253,11 @@ namespace WonderInjection
         {
             if (Program.Connected)
             {
+                if (eggbot != null)
+                {
+                    eggbot.RequestStop();
+                }
+
                 Program.scriptHelper.disconnect();
 
                 if (!Program.Connected)
@@ -473,6 +486,30 @@ namespace WonderInjection
         private void MainForm_Load_1(object sender, EventArgs e)
         {
 
+        }
+
+        private void BoxAllInjection_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private async void btn_EggOn_Click(object sender, EventArgs e)
+        {
+            {
+                byte[] data = BitConverter.GetBytes(0x01);
+                Program.scriptHelper.write(eggOff, data, pid);
+            }
+            eggbot = new EggBot(pid,Gamename);
+            btn_EggOff.Enabled = true;
+            btn_EggOn.Enabled = false;
+            await eggbot.RunBot();
+        }
+
+        private void btn_EggOff_Click(object sender, EventArgs e)
+        {
+            eggbot.RequestStop();
+            btn_EggOn.Enabled = true;
+            btn_EggOff.Enabled = false;
         }
     }
 
