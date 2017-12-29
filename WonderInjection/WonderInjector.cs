@@ -24,10 +24,10 @@ namespace WonderInjection
         /* Possibly Ultra box layout Offset? 0x33015AB0
         Possibly Ultra Wondercard Offset? 0x33075BF4
         Possibly Ultra Egg Location Offset? 0x3307B1EC */
-        public uint boxOff = 0x330D9838;
-        public uint wcOff = 0x331397E4;
-        public uint partyOff = 0x34195E10;
-        private uint eggOff = 0x3313EDD8;
+        public uint boxOff;
+        public uint wcOff;
+        public uint partyOff;
+        private uint eggOff;
         public EggBot eggbot;
 
 
@@ -77,6 +77,8 @@ namespace WonderInjection
 
         }
 
+        // Ultra Games
+
         public void getGame(object sender, EventArgs e)
         {
             InfoReadyEventArgs args = (InfoReadyEventArgs)e;
@@ -114,7 +116,7 @@ namespace WonderInjection
                 boxOff = 0x33015AB0;
                 wcOff = 0x33075BF4;
                 partyOff = 0x33F7FA44;
-                eggOff = 0x3307B1EC;
+                eggOff = 0x3307B1E8;
     }
             this.Gamename = Gamename;
             //Change Offsets of GameVersions
@@ -128,9 +130,11 @@ namespace WonderInjection
             {
                 boxOff = 0x33015AB0;
                 wcOff = 0x33075BF4;
-                eggOff = 0x3307B1EC;
+                eggOff = 0x326601C4;
     }
         }
+        EggBot workerObject = null;
+        public string Gamename { get; private set; }
 
         public void setupButtons()
         {
@@ -174,7 +178,6 @@ namespace WonderInjection
                 waitingForData.Remove(e.seq);
             }
         }
-        public string Gamename { get; private set; }
 
         public void changeOffset(uint boxOff, uint wcOff)
         {
@@ -218,6 +221,10 @@ namespace WonderInjection
             {
                 tb_FileInjection.Text = ofd_Injection.FileName;
                 ofd_Injection.InitialDirectory = Path.GetDirectoryName(ofd_Injection.FileName);
+                if (eggbot != null)
+                {
+                    eggbot.RequestStop();
+                }
             }
         }
 
@@ -495,11 +502,7 @@ namespace WonderInjection
 
         private async void btn_EggOn_Click(object sender, EventArgs e)
         {
-            {
-                byte[] data = BitConverter.GetBytes(0x01);
-                Program.scriptHelper.write(eggOff, data, pid);
-            }
-            eggbot = new EggBot(pid,Gamename);
+            eggbot = new EggBot(pid, Gamename);
             btn_EggOff.Enabled = true;
             btn_EggOn.Enabled = false;
             await eggbot.RunBot();
@@ -510,6 +513,11 @@ namespace WonderInjection
             eggbot.RequestStop();
             btn_EggOn.Enabled = true;
             btn_EggOff.Enabled = false;
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            
         }
     }
 

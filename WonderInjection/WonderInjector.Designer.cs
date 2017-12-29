@@ -186,6 +186,7 @@ namespace WonderInjection
             this.comboBox1.Size = new System.Drawing.Size(121, 21);
             this.comboBox1.Sorted = true;
             this.comboBox1.TabIndex = 22;
+            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // label8
             // 
@@ -199,6 +200,7 @@ namespace WonderInjection
             // BoxAllInjection
             // 
             this.BoxAllInjection.AutoSize = true;
+            this.BoxAllInjection.Enabled = false;
             this.BoxAllInjection.Location = new System.Drawing.Point(231, 87);
             this.BoxAllInjection.Name = "BoxAllInjection";
             this.BoxAllInjection.Size = new System.Drawing.Size(108, 17);

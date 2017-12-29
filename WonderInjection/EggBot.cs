@@ -19,21 +19,20 @@ namespace WonderInjection
 
         private bool botstop = false;
 
-        public string Gamename { get; private set; }
+        public string Gamename { get; }
 
-        public EggBot(int iP, string gamename)
+        public EggBot(int iP, string Gamename)
         {
- 
-           Gamename = gamename;
             if (Gamename == "USUM")
             {
-                eggOff = 0x3307B1EC;
+                eggOff = 0x3307B1E8;
             }
             else if (Gamename == "SUMO")
             {
                 eggOff = 0x3313EDD8;
             }
             iPID = iP;
+            this.Gamename = Gamename;
         }
 
         public async Task RunBot()
