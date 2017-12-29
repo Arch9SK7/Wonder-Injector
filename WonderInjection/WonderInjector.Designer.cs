@@ -603,7 +603,7 @@ namespace WonderInjection
             this.linkLabel1.Size = new System.Drawing.Size(44, 13);
             this.linkLabel1.TabIndex = 7;
             this.linkLabel1.TabStop = true;
-            this.linkLabel1.Text = "Ver. 1.1";
+            this.linkLabel1.Text = "Ver. 1.3";
             this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
             // 
             // ofd_Injection
