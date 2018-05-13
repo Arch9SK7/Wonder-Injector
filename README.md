@@ -1,3 +1,5 @@
+I have killed this project due to finding out that there was another program already made called like pokemon ntr or something that has most of my features already :/ Well glad i was the first in the world to have made and released an ultra sun supported ntr trainer. :o but hope everyone who did use this enjoyed it for the time it was here :) <3
+
 # Wonder-Injector
 
 NTR live save dumping and Pokemon/Wondercard injection for Pokemon Sun/Moon and Ultra Sun/Moon
